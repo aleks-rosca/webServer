@@ -9,4 +9,6 @@ public interface ItemDAO {
     String addItem(Item item);
 
     List<Item> getAllItems();
+
+    String deleteItem(String name);
 }

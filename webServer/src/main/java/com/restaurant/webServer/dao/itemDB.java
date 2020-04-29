@@ -50,6 +50,19 @@ public class itemDB implements ItemDAO {
         }
         return temp;
     }
+
+
+
+    @Override
+    public String deleteItem(String name) {
+        String sql = "DELETE FROM item WHERE itemName = '" + name + "';";
+        try {
+            connection.delete(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
 }
 
 

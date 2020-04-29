@@ -25,4 +25,8 @@ public class ItemService {
     public List<Item> getAllItems(){
         return itemdb.getAllItems();
     }
+
+    public String deleteItem(String name){
+        return itemdb.deleteItem(name);
+    }
 }

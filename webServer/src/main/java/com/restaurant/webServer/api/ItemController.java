@@ -26,4 +26,8 @@ public class ItemController {
     public List<Item> getAllItems(){
         return  itemService.getAllItems();
     }
+    @DeleteMapping(path = "{itemName}")
+    public void deleteItem(@PathVariable ("itemName") String itemName){
+        itemService.deleteItem(itemName);
+    }
 }
