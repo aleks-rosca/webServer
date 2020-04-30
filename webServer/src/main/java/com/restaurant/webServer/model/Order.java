@@ -3,23 +3,21 @@ package com.restaurant.webServer.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Order {
-    private long orderID;
-    private long listID;
-    private double totalPrice;
     private int tableNo;
+    private long orderID;
+    private double totalPrice;
 
 
-    public Order(@JsonProperty("orderID") long orderID,
-                 @JsonProperty("listID") long listID,
-                 @JsonProperty("totalPrice") double totalPrice,
-                 @JsonProperty("tableNo") int tableNo) {
-        this.orderID = orderID;
-        this.listID = listID;
-        this.totalPrice = totalPrice;
+    public Order(@JsonProperty("tableNo") int tableNo,
+                 @JsonProperty("orderID") long orderID,
+                 @JsonProperty("totalPrice") double totalPrice) {
         this.tableNo = tableNo;
+        this.orderID = orderID;
+        this.totalPrice = totalPrice;
+
     }
 
-    public Order(){
+    public Order() {
 
     }
 
@@ -29,14 +27,6 @@ public class Order {
 
     public void setOrderID(long orderID) {
         this.orderID = orderID;
-    }
-
-    public long getListID() {
-        return listID;
-    }
-
-    public void setListID(long listID) {
-        this.listID = listID;
     }
 
     public double getTotalPrice() {

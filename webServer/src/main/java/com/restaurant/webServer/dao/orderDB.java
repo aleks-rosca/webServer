@@ -17,7 +17,7 @@ public class orderDB implements orderDAO {
 
     @Override
     public String addOrder(Order order) {
-        String sql = "INSERT INTO order values('" + order.getOrderID() + "', '" + order.getListID() + "', '" + order.getTotalPrice() + "', '" + order.getTableNo() + "', CURRENT_DATE);";
+        String sql = "INSERT INTO orders values('" + order.getTableNo() + "', '" + order.getOrderID() + "', '" + order.getTotalPrice() + "', CURRENT_DATE);";
 
         try {
             connection.update(sql);
