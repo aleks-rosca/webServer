@@ -6,8 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 public class Item {
-    @Id
-    @GeneratedValue
     private long itemID;
     private String itemName;
     private String itemDesc;

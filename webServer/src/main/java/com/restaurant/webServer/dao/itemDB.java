@@ -20,7 +20,7 @@ public class itemDB implements ItemDAO {
 
     @Override
     public String addItem(Item newItem) {
-        String sql = "INSERT INTO item values('" + newItem.getItemID() + "', '" + newItem.getItemName() + "', '" + newItem.getItemDesc() + "', '" + newItem.getItemPrice() + "', '" + newItem.getItemType() + "');";
+        String sql = "INSERT INTO item(itemName,itemDesc,itemPrice,itemType) values('" + newItem.getItemName() + "', '" + newItem.getItemDesc() + "', '" + newItem.getItemPrice() + "', '" + newItem.getItemType() + "');";
 
         try {
             connection.update(sql);
