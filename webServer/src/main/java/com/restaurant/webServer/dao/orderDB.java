@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.SQLException;
 
-@Repository("postgres")
+@Repository("postgres_order")
 public class orderDB implements orderDAO {
 
     private Conn connection;
@@ -17,7 +17,7 @@ public class orderDB implements orderDAO {
 
     @Override
     public String addOrder(Order order) {
-        String sql = "INSERT INTO item values('" + order.getOrderID() + "', '" + order.getListID() + "', '" + order.getTotalPrice() + "', '" + order.getTableNo() + "', CURRENT_DATE);";
+        String sql = "INSERT INTO order values('" + order.getOrderID() + "', '" + order.getListID() + "', '" + order.getTotalPrice() + "', '" + order.getTableNo() + "', CURRENT_DATE);";
 
         try {
             connection.update(sql);

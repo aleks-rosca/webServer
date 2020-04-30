@@ -11,7 +11,7 @@ public class OrderService {
     private final orderDAO orderdb;
 
     @Autowired
-    public OrderService(@Qualifier("postgres") orderDAO orderdb) {
+    public OrderService(@Qualifier("postgres_order") orderDAO orderdb) {
         this.orderdb = orderdb;
     }
 

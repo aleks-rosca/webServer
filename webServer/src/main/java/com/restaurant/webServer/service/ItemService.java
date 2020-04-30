@@ -14,7 +14,7 @@ public class ItemService {
     private final ItemDAO itemdb;
 
     @Autowired
-    public ItemService(@Qualifier("postgres") ItemDAO itemdb) {
+    public ItemService(@Qualifier("postgres_item") ItemDAO itemdb) {
         this.itemdb = itemdb;
     }
 

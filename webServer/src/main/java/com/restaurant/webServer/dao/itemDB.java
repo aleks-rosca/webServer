@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-@Repository("postgres")
+@Repository("postgres_item")
 public class itemDB implements ItemDAO {
 
     private Conn connection;
