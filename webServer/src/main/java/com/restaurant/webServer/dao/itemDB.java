@@ -55,7 +55,7 @@ public class itemDB implements ItemDAO {
 
     @Override
     public String deleteItem(int id) {
-        String sql = "DELETE FROM item WHERE itemName = '" + id + "';";
+        String sql = "DELETE FROM item WHERE itemID = '" + id + "';";
         try {
             connection.delete(sql);
         } catch (SQLException e) {
@@ -66,7 +66,7 @@ public class itemDB implements ItemDAO {
 
     @Override
     public List<Item> getItemByType(String type) {
-        String sql = "SELECT * FROM item where type =;";
+        String sql = "SELECT * FROM item where itemType = '" + type + "';";
         ArrayList<Item> temp = new ArrayList<>();
         try {
             ResultSet rs = connection.query(sql);
