@@ -30,6 +30,7 @@ public class itemDB implements ItemDAO {
         return "";
     }
 
+
     @Override
     public List<Item> getAllItems() {
         String sql = "SELECT * FROM item;";
@@ -62,6 +63,26 @@ public class itemDB implements ItemDAO {
             e.printStackTrace();
         }
         return "";
+    }
+
+    @Override
+    public Item getItemById(int id) {
+        String sql = "SELECT * FROM item WHERE itemID = '"+ id + "';";
+        Item i = new Item();
+        try {
+            ResultSet rs = connection.query(sql);
+            while (rs.next()) {
+                int itemID = rs.getInt("itemID");
+                String itemName = rs.getString("itemName");
+                String itemDesc = rs.getString("itemDesc");
+                int itemPrice = rs.getInt("itemPrice");
+                String itemType = rs.getString("itemType");
+                i = new Item(itemID,itemName, itemDesc, itemPrice, itemType);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return i;
     }
 
     @Override

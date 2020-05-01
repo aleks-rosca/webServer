@@ -12,5 +12,7 @@ public interface ItemDAO {
 
     String deleteItem(int id);
 
+    Item getItemById(int id);
+
     List<Item> getItemByType(String type);
 }

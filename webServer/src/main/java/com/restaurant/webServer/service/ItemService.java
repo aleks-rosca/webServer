@@ -30,6 +30,10 @@ public class ItemService {
         return itemdb.deleteItem(id);
     }
 
+    public Item getItemById(int id){
+        return itemdb.getItemById(id);
+    }
+
     public List<Item> getItemByType(String type){
         return itemdb.getItemByType(type);
     }

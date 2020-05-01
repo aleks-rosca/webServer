@@ -31,32 +31,33 @@ public class orderDB implements orderDAO {
         }
         return "";
     }
-    public Order getOrderbyID(int orderID){
-        String sql = "SELECT * FROM orders WHERE orderid='"+orderID+"';";
-        int tabno=0;
-        int orderid=0;
-        double totalprice=0;
-        Timestamp date=null;
+
+    public Order getOrderbyID(int orderID) {
+        String sql = "SELECT * FROM orders WHERE orderid='" + orderID + "';";
+        int tabno = 0;
+        int orderid = 0;
+        double totalprice = 0;
+        Timestamp date = null;
         try {
-            ResultSet rs= connection.query(sql);
-            while(rs.next()){
-            tabno= Integer.parseInt(rs.getString("tableno"));
-            orderid=rs.getInt("orderid");
-            totalprice=rs.getDouble("totalprice");
-            date=rs.getTimestamp("date");
+            ResultSet rs = connection.query(sql);
+            while (rs.next()) {
+                tabno = Integer.parseInt(rs.getString("tableno"));
+                orderid = rs.getInt("orderid");
+                totalprice = rs.getDouble("totalprice");
+                date = rs.getTimestamp("date");
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        Order order= new Order(tabno,orderid,totalprice,date);
+        Order order = new Order(tabno, orderid, totalprice, date);
         return order;
     }
 
     @Override
     public void deleteOrderbyID(int orderID) {
-        String sql="DELETE FROM orders WHERE orderid='"+orderID+"';";
+        String sql = "DELETE FROM orders WHERE orderid='" + orderID + "';";
         try {
             connection.delete(sql);
         } catch (SQLException e) {
@@ -67,19 +68,19 @@ public class orderDB implements orderDAO {
     @Override
     public List<Order> getAllOrders() {
         String sql = "SELECT * FROM orders;";
-        int tabno=0;
-        int orderid=0;
-        double totalprice=0;
-        Timestamp date=null;
-        ArrayList<Order> orders=new ArrayList<>();
+        int tabno = 0;
+        int orderid = 0;
+        double totalprice = 0;
+        Timestamp date = null;
+        ArrayList<Order> orders = new ArrayList<>();
         try {
-            ResultSet rs= connection.query(sql);
-            while(rs.next()){
-                tabno= Integer.parseInt(rs.getString("tableno"));
-                orderid=rs.getInt("orderid");
-                totalprice=rs.getDouble("totalprice");
-                date=rs.getTimestamp("date");
-                Order order= new Order(tabno,orderid,totalprice,date);
+            ResultSet rs = connection.query(sql);
+            while (rs.next()) {
+                tabno = Integer.parseInt(rs.getString("tableno"));
+                orderid = rs.getInt("orderid");
+                totalprice = rs.getDouble("totalprice");
+                date = rs.getTimestamp("date");
+                Order order = new Order(tabno, orderid, totalprice, date);
                 orders.add(order);
             }
 

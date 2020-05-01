@@ -32,7 +32,13 @@ public class ItemController {
         itemService.deleteItem(itemID);
     }
 
-    @GetMapping(path = "{itemType}")
+    @GetMapping(path = "/byId/{itemID}")
+    public Item getItemById(@PathVariable("itemID") int itemID) {
+        return itemService.getItemById(itemID);
+
+    }
+
+    @GetMapping(path = "/byType/{itemType}")
     public List<Item> getItemByType(@PathVariable("itemType") String type) {
         return itemService.getItemByType(type);
     }
