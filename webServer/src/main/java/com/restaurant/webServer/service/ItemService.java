@@ -26,7 +26,11 @@ public class ItemService {
         return itemdb.getAllItems();
     }
 
-    public String deleteItem(String name){
-        return itemdb.deleteItem(name);
+    public String deleteItem(int id){
+        return itemdb.deleteItem(id);
+    }
+
+    public List<Item> getItemByType(String type){
+        return itemdb.getItemByType(type);
     }
 }

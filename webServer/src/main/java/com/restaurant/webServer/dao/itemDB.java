@@ -54,14 +54,35 @@ public class itemDB implements ItemDAO {
 
 
     @Override
-    public String deleteItem(String name) {
-        String sql = "DELETE FROM item WHERE itemName = '" + name + "';";
+    public String deleteItem(int id) {
+        String sql = "DELETE FROM item WHERE itemID = '" + id + "';";
         try {
             connection.delete(sql);
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return "";
+    }
+
+    @Override
+    public List<Item> getItemByType(String type) {
+        String sql = "SELECT * FROM item where itemType = '" + type + "';";
+        ArrayList<Item> temp = new ArrayList<>();
+        try {
+            ResultSet rs = connection.query(sql);
+            while (rs.next()) {
+                int itemID = rs.getInt("itemID");
+                String itemName = rs.getString("itemName");
+                String itemDesc = rs.getString("itemDesc");
+                int itemPrice = rs.getInt("itemPrice");
+                String itemType = rs.getString("itemType");
+                Item i = new Item(itemID,itemName, itemDesc, itemPrice, itemType);
+                temp.add(i);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return temp;
     }
 }
 

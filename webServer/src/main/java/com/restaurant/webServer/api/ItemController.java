@@ -21,12 +21,19 @@ public class ItemController {
     public void addItem(@RequestBody Item item) {
         itemService.addItem(item);
     }
+
     @GetMapping
-    public List<Item> getAllItems(){
-        return  itemService.getAllItems();
+    public List<Item> getAllItems() {
+        return itemService.getAllItems();
     }
-    @DeleteMapping(path = "{itemName}")
-    public void deleteItem(@PathVariable ("itemName") String itemName){
-        itemService.deleteItem(itemName);
+
+    @DeleteMapping(path = "{itemID}")
+    public void deleteItem(@PathVariable("itemID") int itemID) {
+        itemService.deleteItem(itemID);
+    }
+
+    @GetMapping(path = "{itemType}")
+    public List<Item> getItemByType(@PathVariable("itemType") String type) {
+        return itemService.getItemByType(type);
     }
 }
