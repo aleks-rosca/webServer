@@ -34,14 +34,14 @@ public class orderDB implements orderDAO {
 
     public Order getOrderbyID(int orderID) {
         String sql = "SELECT * FROM orders WHERE orderid='" + orderID + "';";
-        int tabno = 0;
+        String tabno = null;
         int orderid = 0;
         double totalprice = 0;
         Timestamp date = null;
         try {
             ResultSet rs = connection.query(sql);
             while (rs.next()) {
-                tabno = Integer.parseInt(rs.getString("tableno"));
+                tabno = rs.getString("tableno");
                 orderid = rs.getInt("orderid");
                 totalprice = rs.getDouble("totalprice");
                 date = rs.getTimestamp("date");
@@ -68,7 +68,7 @@ public class orderDB implements orderDAO {
     @Override
     public List<Order> getAllOrders() {
         String sql = "SELECT * FROM orders;";
-        int tabno = 0;
+        String tabno = null;
         int orderid = 0;
         double totalprice = 0;
         Timestamp date = null;
@@ -76,7 +76,7 @@ public class orderDB implements orderDAO {
         try {
             ResultSet rs = connection.query(sql);
             while (rs.next()) {
-                tabno = Integer.parseInt(rs.getString("tableno"));
+                tabno = rs.getString("tableno");
                 orderid = rs.getInt("orderid");
                 totalprice = rs.getDouble("totalprice");
                 date = rs.getTimestamp("date");

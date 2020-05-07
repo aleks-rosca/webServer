@@ -5,12 +5,17 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.sql.Timestamp;
 
 public class Order {
-    private int tableNo;
+    private String tableNo;
     private int orderID;
     private double totalPrice;
     private Timestamp date;
 
+
     public Order(@JsonProperty("tableNo") int tableNo,
+
+
+    public Order(@JsonProperty("tableNo") String tableNo,
+
                  @JsonProperty("orderID") int orderID,
                  @JsonProperty("totalPrice") double totalPrice,
                  @JsonProperty("date") Timestamp date) {
@@ -37,11 +42,11 @@ public class Order {
         return totalPrice;
     }
 
-    public void setTableNo(int tableNo) {
+    public void setTableNo(String tableNo) {
         this.tableNo = tableNo;
     }
 
-    public int getTableNo() {
+    public String getTableNo() {
         return tableNo;
     }
 
