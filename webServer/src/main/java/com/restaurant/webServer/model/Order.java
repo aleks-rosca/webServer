@@ -10,15 +10,14 @@ public class Order {
     private double totalPrice;
     private Timestamp date;
 
-
     public Order(@JsonProperty("tableNo") int tableNo,
                  @JsonProperty("orderID") int orderID,
                  @JsonProperty("totalPrice") double totalPrice,
-                @JsonProperty("date") Timestamp date) {
+                 @JsonProperty("date") Timestamp date) {
         this.tableNo = tableNo;
         this.orderID = orderID;
         this.totalPrice = totalPrice;
-        this.date=date;
+        this.date = date;
 
     }
 
@@ -50,9 +49,13 @@ public class Order {
         this.totalPrice = totalPrice;
     }
 
-    public Timestamp getDate() { return date; }
+    public Timestamp getDate() {
+        return date;
+    }
 
-    public void setDate(Timestamp date) { this.date = date; }
+    public void setDate(Timestamp date) {
+        this.date = date;
+    }
 
     @Override
     public String toString() {
