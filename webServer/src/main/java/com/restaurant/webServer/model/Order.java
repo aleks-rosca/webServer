@@ -11,9 +11,6 @@ public class Order {
     private Timestamp date;
 
 
-    public Order(@JsonProperty("tableNo") int tableNo,
-
-
     public Order(@JsonProperty("tableNo") String tableNo,
 
                  @JsonProperty("orderID") int orderID,
