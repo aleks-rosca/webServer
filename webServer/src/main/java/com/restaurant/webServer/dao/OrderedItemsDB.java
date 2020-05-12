@@ -1,5 +1,6 @@
 package com.restaurant.webServer.dao;
 
+import com.restaurant.webServer.dao.IOrderedItemsDAO;
 import com.restaurant.webServer.data.Conn;
 import com.restaurant.webServer.model.OrderItems;
 import org.springframework.stereotype.Repository;
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository("postgres_orderedItems")
-public class OrderedItemsDB implements IOrderedItemsDAO{
+public class OrderedItemsDB implements IOrderedItemsDAO {
 
     private Conn connection;
 
@@ -20,7 +21,7 @@ public class OrderedItemsDB implements IOrderedItemsDAO{
 
     @Override
     public String addOrderItems(OrderItems orderItem) {
-        String sql = "INSERT INTO orderedItems(itemID,tableNO,quantity,price) values('" + orderItem.getItemID() + "', '" + orderItem.getTableNo() + "', '" + orderItem.getQuantity() +"',("+orderItem.getQuantity()+"*(SELECT itemPrice FROM item WHERE itemID="+orderItem.getItemID()+")));";
+        String sql = "INSERT INTO orderedItems(itemID,tableNO,quantity,price) values('" + orderItem.getItemID() + "', '" + orderItem.getTableNo() + "', '" + orderItem.getQuantity() + "',(" + orderItem.getQuantity() + "*(SELECT itemPrice FROM item WHERE itemID=" + orderItem.getItemID() + ")));";
 
         try {
             connection.update(sql);
@@ -41,7 +42,7 @@ public class OrderedItemsDB implements IOrderedItemsDAO{
                 String tableNO = rs.getString("tableNO");
                 int quantity = rs.getInt("quantity");
                 double price = rs.getDouble("price");
-                OrderItems i = new OrderItems(itemID,tableNO, quantity, price);
+                OrderItems i = new OrderItems(itemID, tableNO, quantity, price);
                 temp.add(i);
             }
         } catch (SQLException e) {
@@ -63,7 +64,7 @@ public class OrderedItemsDB implements IOrderedItemsDAO{
 
     @Override
     public List<OrderItems> getOrderItemsbyTableNO(String tableNO) {
-        String sql = "SELECT * FROM orderedItems WHERE tableNO='"+tableNO+"';";
+        String sql = "SELECT * FROM orderedItems WHERE tableNO='" + tableNO + "';";
         ArrayList<OrderItems> temp = new ArrayList<>();
         try {
             ResultSet rs = connection.query(sql);
@@ -72,7 +73,7 @@ public class OrderedItemsDB implements IOrderedItemsDAO{
                 String tableNo = rs.getString("tableNO");
                 int quantity = rs.getInt("quantity");
                 double price = rs.getDouble("price");
-                OrderItems i = new OrderItems(itemID,tableNo, quantity, price);
+                OrderItems i = new OrderItems(itemID, tableNo, quantity, price);
                 temp.add(i);
             }
         } catch (SQLException e) {
@@ -81,3 +82,5 @@ public class OrderedItemsDB implements IOrderedItemsDAO{
         return temp;
     }
 }
+
+
