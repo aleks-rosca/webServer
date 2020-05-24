@@ -15,8 +15,12 @@ public class OrderItemsService {
        this.orderedItemsdb = orderItemdb;
     }
 
-    public String addOrderItems(OrderItems orderItem){
-        return orderedItemsdb.addOrderItems(orderItem);
+    public String addOrderItems(List<OrderItems> orderItems){
+        StringBuilder response = new StringBuilder();
+        for(int i = 0; i < orderItems.size(); i++){
+            response.append(orderedItemsdb.addOrderItems(orderItems.get(i)));
+        }
+        return response.toString();
     };
 
     public List<OrderItems> getAllOrderItems(){

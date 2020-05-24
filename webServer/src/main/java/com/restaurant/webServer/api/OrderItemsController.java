@@ -20,7 +20,8 @@ public class OrderItemsController {
     }
 
     @PostMapping
-    public void addOrderItem(@RequestBody OrderItems orderItems) {
+    public void addOrderItem(@RequestBody List<OrderItems> orderItems) {
+        System.out.println("received json: " + orderItems);
         orderItemsService.addOrderItems(orderItems);
     }
 
