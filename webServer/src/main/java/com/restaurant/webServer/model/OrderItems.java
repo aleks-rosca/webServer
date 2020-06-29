@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class OrderItems {
 
     private long itemID;
+    private String itemName;
     private String tableNO;
     private int quantity;
     private double price;
@@ -13,8 +14,21 @@ public class OrderItems {
                          @JsonProperty("tableNO") String tableNO,
                          @JsonProperty("quantity") int quantity,
                          @JsonProperty("price") double price
-                     ) {
+    ) {
         this.itemID=itemID;
+        this.tableNO=tableNO;
+        this.quantity=quantity;
+        this.price = price;
+
+    }
+    public OrderItems(   @JsonProperty("itemID") long itemID,
+                         @JsonProperty("itemName") String itemName,
+                         @JsonProperty("tableNO") String tableNO,
+                         @JsonProperty("quantity") int quantity,
+                         @JsonProperty("price") double price
+    ) {
+        this.itemID=itemID;
+        this.itemName=itemName;
         this.tableNO=tableNO;
         this.quantity=quantity;
         this.price = price;
@@ -54,6 +68,14 @@ public class OrderItems {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public String getItemName() {
+        return itemName;
+    }
+
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
     }
 
     @Override
