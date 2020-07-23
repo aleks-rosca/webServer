@@ -35,6 +35,10 @@ public class OrderItemsController {
         return orderItemsService.getAllKitchenOrderItems();
     }
 
+    @GetMapping(path = "done")
+    public List<OrderItems> getAllWaiterOrderItems() {
+        return orderItemsService.getAllWaiterOrderItems();
+    }
     @GetMapping(path = "{tableNO}")
     public List<OrderItems> getAllOrderItemsbyTableNO(@PathVariable("tableNO") String tableNO) {
         return orderItemsService.getOrderItemsbyTableNO(tableNO);
