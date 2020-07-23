@@ -11,17 +11,7 @@ public class OrderItems {
     private int quantity;
     private double price;
 
-    public OrderItems(   @JsonProperty("itemID") long itemID,
-                         @JsonProperty("tableNO") String tableNO,
-                         @JsonProperty("quantity") int quantity,
-                         @JsonProperty("price") double price
-    ) {
-        this.itemID=itemID;
-        this.tableNO=tableNO;
-        this.quantity=quantity;
-        this.price = price;
 
-    }
     public OrderItems(   @JsonProperty("itemID") long itemID,
                          @JsonProperty("itemName") String itemName,
                          @JsonProperty("tableNO") String tableNO,
