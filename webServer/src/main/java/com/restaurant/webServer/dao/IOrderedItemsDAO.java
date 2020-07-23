@@ -16,5 +16,7 @@ public interface IOrderedItemsDAO {
 
     String deleteOrderItemsbyTableNO(String tableNO);
 
+    String updateOrderedItemsbyTNoIid(int itemID,String tableNo);
+
     List<OrderItems> getOrderItemsbyTableNO(String tableNO);
 }

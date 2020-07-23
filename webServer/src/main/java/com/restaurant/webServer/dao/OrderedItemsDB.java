@@ -105,6 +105,17 @@ public class OrderedItemsDB implements IOrderedItemsDAO{
     }
 
     @Override
+    public String updateOrderedItemsbyTNoIid(int itemID, String tableNo) {
+        String sql = "UPDATE ordereditems SET ready='1' WHERE itemID="+itemID+" AND tableNO='"+tableNo+"';";
+        try {
+            connection.update(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+
+    @Override
     public List<OrderItems> getOrderItemsbyTableNO(String tableNO) {
         String sql = "SELECT * FROM orderedItems WHERE tableNO='"+tableNO+"';";
         ArrayList<OrderItems> temp = new ArrayList<>();
