@@ -30,6 +30,11 @@ public class OrderItemsController {
         return orderItemsService.getAllOrderItems();
     }
 
+    @GetMapping(path = "undone")
+    public List<OrderItems> getAllKitchenOrderItems() {
+        return orderItemsService.getAllKitchenOrderItems();
+    }
+
     @GetMapping(path = "{tableNO}")
     public List<OrderItems> getAllOrderItemsbyTableNO(@PathVariable("tableNO") String tableNO) {
         return orderItemsService.getOrderItemsbyTableNO(tableNO);
