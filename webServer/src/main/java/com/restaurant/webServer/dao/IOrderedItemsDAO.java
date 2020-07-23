@@ -12,6 +12,8 @@ public interface IOrderedItemsDAO {
 
     List<OrderItems> getAllKitchenOrderItems();
 
+    List<OrderItems> getAllWaiterOrderItems();
+
     String deleteOrderItemsbyTableNO(String tableNO);
 
     List<OrderItems> getOrderItemsbyTableNO(String tableNO);

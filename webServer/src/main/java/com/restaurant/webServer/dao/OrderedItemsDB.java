@@ -73,6 +73,27 @@ public class OrderedItemsDB implements IOrderedItemsDAO{
     }
 
     @Override
+    public List<OrderItems> getAllWaiterOrderItems() {
+        String sql = "SELECT * FROM orderedItems natural join item where ready='1';";
+        ArrayList<OrderItems> temp = new ArrayList<>();
+        try {
+            ResultSet rs = connection.query(sql);
+            while (rs.next()) {
+                int itemID = rs.getInt("itemID");
+                String itemName=rs.getString("itemName");
+                String tableNO = rs.getString("tableNO");
+                int quantity = rs.getInt("quantity");
+                double price = rs.getDouble("price");
+                OrderItems i = new OrderItems(itemID,itemName,tableNO, quantity, price);
+                temp.add(i);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return temp;
+    }
+
+    @Override
     public String deleteOrderItemsbyTableNO(String tableNO) {
         String sql = "DELETE FROM orderedItems WHERE tableNO = '" + tableNO + "';";
         try {
