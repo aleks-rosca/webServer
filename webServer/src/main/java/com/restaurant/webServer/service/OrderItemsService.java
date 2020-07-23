@@ -27,6 +27,8 @@ public class OrderItemsService {
         return orderedItemsdb.getAllOrderItems();
     };
 
+    public List<OrderItems> getAllKitchenOrderItems(){ return orderedItemsdb.getAllKitchenOrderItems(); }
+
     public String deleteOrderItemsbyTableNO(String tableNO){
         return orderedItemsdb.deleteOrderItemsbyTableNO(tableNO);
     };

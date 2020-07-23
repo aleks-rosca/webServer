@@ -10,6 +10,8 @@ public interface IOrderedItemsDAO {
 
     List<OrderItems> getAllOrderItems();
 
+    List<OrderItems> getAllKitchenOrderItems();
+
     String deleteOrderItemsbyTableNO(String tableNO);
 
     List<OrderItems> getOrderItemsbyTableNO(String tableNO);
