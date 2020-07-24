@@ -6,14 +6,14 @@ import java.sql.Timestamp;
 
 public class Order {
     private String tableNo;
-    private int orderID;
+    private long orderID;
     private double totalPrice;
     private Timestamp date;
 
 
     public Order(@JsonProperty("tableNo") String tableNo,
 
-                 @JsonProperty("orderID") int orderID,
+                 @JsonProperty("orderID") long orderID,
                  @JsonProperty("totalPrice") double totalPrice,
                  @JsonProperty("date") Timestamp date) {
         this.tableNo = tableNo;
