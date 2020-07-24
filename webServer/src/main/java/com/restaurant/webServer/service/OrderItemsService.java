@@ -33,6 +33,8 @@ public class OrderItemsService {
         return orderedItemsdb.getAllWaiterOrderItems();
     };
 
+    public String updateOrderedItemsbyTNoIid(int itemID, String tableNo){return orderedItemsdb.updateOrderedItemsbyTNoIid(itemID,tableNo);};
+
     public String deleteOrderItemsbyTableNO(String tableNO){
         return orderedItemsdb.deleteOrderItemsbyTableNO(tableNO);
     };
