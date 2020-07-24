@@ -116,6 +116,17 @@ public class OrderedItemsDB implements IOrderedItemsDAO{
     }
 
     @Override
+    public void deliveredItems(int itemId, String tableNo) {
+        String sql = "DELETE FROM ordereditems WHERE itemID=" + itemId+" AND tableNO='"+tableNo+"';";
+        try {
+            connection.delete(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Override
     public List<OrderItems> getOrderItemsbyTableNO(String tableNO) {
         String sql = "SELECT * FROM orderedItems WHERE tableNO='"+tableNO+"';";
         ArrayList<OrderItems> temp = new ArrayList<>();

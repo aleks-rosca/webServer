@@ -46,6 +46,9 @@ public class OrderItemsController {
     @GetMapping(path = "done/{itemID},{tableNO}")
     public  String updateOrderedItemsbyTNoIid(@PathVariable("itemID") int itemID, @PathVariable("tableNO")String tableNo){return orderItemsService.updateOrderedItemsbyTNoIid(itemID,tableNo);}
 
+    @DeleteMapping(path = "delivered/{itemID},{tableNO}")
+    public void deliveredItems(@PathVariable("itemID") int itemID, @PathVariable("tableNO")String tableNo){orderItemsService.deliveredItems(itemID, tableNo);}
+
     @DeleteMapping(path = "{tableNO}")
     public void deleteOrderItemsbyTableNO(@PathVariable("tableNO") String tableNO) {
         orderItemsService.deleteOrderItemsbyTableNO(tableNO);
