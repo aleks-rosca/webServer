@@ -29,4 +29,11 @@ public class OrderService {
     public void deleteOrderbyID(int orderID){orderdb.deleteOrderbyID(orderID);};
 
     public List<Order> getAllOrders(){return orderdb.getAllOrders();}
+
+    public List<Order> getAllNotPaidOrders(){return orderdb.getAllNotPaidOrders();}
+
+    public List<Order> getAllPaidOrders(){return orderdb.getAllPaidOrders();}
+
+    public void updateOrderToPaid(int orderID){orderdb.updateOrderToPaid(orderID);};
+
 }
