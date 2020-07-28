@@ -22,7 +22,7 @@ public class orderDB implements orderDAO {
 
     @Override
     public String addOrder(Order order) {
-        String sql = "INSERT INTO orders(tableNo,totalPrice,date) values('" + order.getTableNo() + "', '" + order.getTotalPrice() + "', CURRENT_TIMESTAMP);";
+        String sql = "INSERT INTO orders(tableNo,totalPrice,date) values('" + order.getTableNo() + "', '" + order.getTotalPrice() + "', NOW());";
 
         try {
             connection.update(sql);
