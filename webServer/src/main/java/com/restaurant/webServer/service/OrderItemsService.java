@@ -35,6 +35,8 @@ public class OrderItemsService {
 
     public String updateOrderedItemsbyTNoIid(int itemID, String tableNo){return orderedItemsdb.updateOrderedItemsbyTNoIid(itemID,tableNo);};
 
+    public void deliveredItems(int itemID, String tableNo){orderedItemsdb.deliveredItems(itemID, tableNo);};
+
     public String deleteOrderItemsbyTableNO(String tableNO){
         return orderedItemsdb.deleteOrderItemsbyTableNO(tableNO);
     };

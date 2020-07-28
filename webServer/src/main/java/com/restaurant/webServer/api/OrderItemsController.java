@@ -43,8 +43,11 @@ public class OrderItemsController {
     public List<OrderItems> getAllOrderItemsbyTableNO(@PathVariable("tableNO") String tableNO) {
         return orderItemsService.getOrderItemsbyTableNO(tableNO);
     }
-    @PostMapping(path = "done/{itemID},{tableNO}")
+    @GetMapping(path = "done/{itemID},{tableNO}")
     public  String updateOrderedItemsbyTNoIid(@PathVariable("itemID") int itemID, @PathVariable("tableNO")String tableNo){return orderItemsService.updateOrderedItemsbyTNoIid(itemID,tableNo);}
+
+    @DeleteMapping(path = "delivered/{itemID},{tableNO}")
+    public void deliveredItems(@PathVariable("itemID") int itemID, @PathVariable("tableNO")String tableNo){orderItemsService.deliveredItems(itemID, tableNo);}
 
     @DeleteMapping(path = "{tableNO}")
     public void deleteOrderItemsbyTableNO(@PathVariable("tableNO") String tableNO) {
