@@ -128,16 +128,17 @@ public class OrderedItemsDB implements IOrderedItemsDAO{
 
     @Override
     public List<OrderItems> getOrderItemsbyTableNO(String tableNO) {
-        String sql = "SELECT * FROM orderedItems WHERE tableNO='"+tableNO+"';";
+        String sql = "SELECT * FROM orderedItems NATURAL JOIN item WHERE tableNO='"+tableNO+"';";
         ArrayList<OrderItems> temp = new ArrayList<>();
         try {
             ResultSet rs = connection.query(sql);
             while (rs.next()) {
                 int itemID = rs.getInt("itemID");
+                String itemName = rs.getString("itemName");
                 String tableNo = rs.getString("tableNO");
                 int quantity = rs.getInt("quantity");
                 double price = rs.getDouble("price");
-                OrderItems i = new OrderItems(itemID,"itemName",tableNo, quantity, price);
+                OrderItems i = new OrderItems(itemID,itemName,tableNo, quantity, price);
                 temp.add(i);
             }
         } catch (SQLException e) {

@@ -21,16 +21,19 @@ public class OrderController {
         orderService.addOrder(order);
 
     }
-    @GetMapping(path = "/byID/{orderID}")
+    @GetMapping(path ="/id/{orderID}")
     public Order getOrderbyID(@PathVariable("orderID") int orderID){
-       return orderService.getOrderbyID(orderID);
+
+        return orderService.getOrderbyID(orderID);
     }
     @DeleteMapping(path="{orderID}")
     public void deleteOrderbyID(@PathVariable("orderID")int orderID){
+
         orderService.deleteOrderbyID(orderID);
     }
     @GetMapping
     public List<Order> getAllOrders(){
+
         return orderService.getAllOrders();
     }
     @GetMapping(path="NotPaidOrders")
