@@ -27,7 +27,6 @@ public class HelpController {
     @GetMapping(path = "/needHelp/{tableNo}")
     public void needHelp(@PathVariable("tableNo") String tableNo) {
 
-        System.out.println(tableNo);
         HELP_SERVICE.needHelp(tableNo);
     }
 
