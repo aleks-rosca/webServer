@@ -18,4 +18,6 @@ public class LogsService {
     }
     public List<Log> getAllLog(){return logsdb.getAllLog();}
     public List<LogQuantityBought> getAllLogQuantityBought(){return  logsdb.getAllLogQuantityBought();}
+    public double getTotalIncomPerDay(){return logsdb.getTotalIncomePerDay();}
+    public double getTotalIncomPerMonth(){return logsdb.getTotalIncomePerMonth();}
 }

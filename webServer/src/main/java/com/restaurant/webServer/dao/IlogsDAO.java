@@ -8,4 +8,6 @@ public interface IlogsDAO {
 
     List<Log> getAllLog();
     List<LogQuantityBought> getAllLogQuantityBought();
+    double getTotalIncomePerDay();
+    double getTotalIncomePerMonth();
 }

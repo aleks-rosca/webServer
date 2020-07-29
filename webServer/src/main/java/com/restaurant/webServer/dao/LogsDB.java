@@ -70,4 +70,32 @@ public class LogsDB implements IlogsDAO {
     }
         return logs;
     }
+
+    @Override
+    public double getTotalIncomePerDay() {
+        String sql = "SELECT SUM(totalPrice_log) FROM log WHERE (SELECT date_trunc('DAY', date_log))=(SELECT date_trunc('DAY',  CURRENT_TIMESTAMP));";
+        double daily=0;
+        try {
+            ResultSet rs=connection.query(sql);
+            while(rs.next())
+            daily=rs.getDouble("sum");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return daily;
+    }
+
+    @Override
+    public double getTotalIncomePerMonth() {
+        String sql = "SELECT SUM(totalPrice_log) FROM log WHERE (SELECT date_trunc('MONTH', date_log))=(SELECT date_trunc('MONTH',  CURRENT_TIMESTAMP));";
+        double monthly=0;
+        try {
+            ResultSet rs=connection.query(sql);
+            while(rs.next())
+            monthly=rs.getDouble("sum");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return monthly;
+    }
 }

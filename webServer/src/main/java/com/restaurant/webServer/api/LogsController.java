@@ -18,5 +18,8 @@ private final LogsService logsService;
     public List<Log> getAllLog(){return logsService.getAllLog();}
     @GetMapping(path="LogQuantityBought")
     public List<LogQuantityBought> getAllLogQuantityBought(){return logsService.getAllLogQuantityBought();}
-
+    @GetMapping(path="Daily")
+    public double getTotalIncomePerDay(){return logsService.getTotalIncomPerDay();}
+    @GetMapping(path="Monthly")
+    public double getTotalIncomePerMonth(){return logsService.getTotalIncomPerMonth();}
 }
