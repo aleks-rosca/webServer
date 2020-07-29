@@ -9,5 +9,5 @@ public interface IlogsDAO {
 
     List<Log> getAllLog();
     List<LogQuantityBought> getAllLogQuantityBought();
-    Income getTotalIncome();
+    List<Income> getTotalIncome();
 }

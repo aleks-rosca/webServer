@@ -74,7 +74,7 @@ public class LogsDB implements IlogsDAO {
     }
 
     @Override
-    public Income getTotalIncome() {
+    public List<Income> getTotalIncome() {
         String sql = "SELECT SUM(totalPrice_log) FROM log WHERE (SELECT date_trunc('DAY', date_log))=(SELECT date_trunc('DAY',  CURRENT_TIMESTAMP));";
         double daily=0;
         try {
@@ -95,7 +95,9 @@ public class LogsDB implements IlogsDAO {
         }
 
         Income income=new Income(daily,monthly);
-        return income;
+        List<Income> incomes=new ArrayList<>();
+        incomes.add(income);
+        return incomes;
     }
 
 }

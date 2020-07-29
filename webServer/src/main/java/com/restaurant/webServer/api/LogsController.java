@@ -20,5 +20,5 @@ private final LogsService logsService;
     @GetMapping(path="LogQuantityBought")
     public List<LogQuantityBought> getAllLogQuantityBought(){return logsService.getAllLogQuantityBought();}
     @GetMapping(path="Income")
-    public Income getTotalIncome(){return logsService.getTotalIncom();}
+    public List<Income> getTotalIncome(){return logsService.getTotalIncom();}
 }
