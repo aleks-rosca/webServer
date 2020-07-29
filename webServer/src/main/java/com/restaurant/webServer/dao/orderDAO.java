@@ -10,13 +10,7 @@ public interface orderDAO {
 
     Order getOrderbyID(int orderID);
 
-    List<Order> getAllNotPaidOrders();
-
-    List<Order> getAllPaidOrders();
-
     void deleteOrderbyID(int orderID);
-
-    void updateOrderToPaid(int orderID);
 
     List<Order> getAllOrders();
 

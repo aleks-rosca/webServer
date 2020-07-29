@@ -36,12 +36,5 @@ public class OrderController {
 
         return orderService.getAllOrders();
     }
-    @GetMapping(path="NotPaidOrders")
-    public List<Order> getAllNotPaieOrders(){ return orderService.getAllNotPaidOrders(); }
-    @GetMapping(path="PaidOrders")
-    public List<Order> getAllPaieOrders(){ return orderService.getAllPaidOrders(); }
-    @PostMapping(path="PaidOrders/{orderID}")
-    public void updateOrderToPaid(@PathVariable("orderID")int orderID){
-        orderService.updateOrderToPaid(orderID);
-    }
+
 }
