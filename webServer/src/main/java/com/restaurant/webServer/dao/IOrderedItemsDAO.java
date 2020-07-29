@@ -18,7 +18,7 @@ public interface IOrderedItemsDAO {
 
     String updateOrderedItemsbyTNoIid(int itemID,String tableNo);
 
-    void deliveredItems(int itemId, String tableNo);
+    void deliveredItems(int itemID, String tableNo);
 
     List<OrderItems> getOrderItemsbyTableNO(String tableNO);
 }
