@@ -1,6 +1,7 @@
 package com.restaurant.webServer.service;
 
 import com.restaurant.webServer.dao.IlogsDAO;
+import com.restaurant.webServer.model.Income;
 import com.restaurant.webServer.model.Log;
 import com.restaurant.webServer.model.LogQuantityBought;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -18,6 +19,5 @@ public class LogsService {
     }
     public List<Log> getAllLog(){return logsdb.getAllLog();}
     public List<LogQuantityBought> getAllLogQuantityBought(){return  logsdb.getAllLogQuantityBought();}
-    public double getTotalIncomPerDay(){return logsdb.getTotalIncomePerDay();}
-    public double getTotalIncomPerMonth(){return logsdb.getTotalIncomePerMonth();}
+    public Income getTotalIncom(){return logsdb.getTotalIncome();}
 }

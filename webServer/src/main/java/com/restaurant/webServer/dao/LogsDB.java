@@ -1,10 +1,12 @@
 package com.restaurant.webServer.dao;
 
 import com.restaurant.webServer.data.Conn;
+import com.restaurant.webServer.model.Income;
 import com.restaurant.webServer.model.Log;
 import com.restaurant.webServer.model.LogQuantityBought;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
@@ -72,30 +74,28 @@ public class LogsDB implements IlogsDAO {
     }
 
     @Override
-    public double getTotalIncomePerDay() {
+    public Income getTotalIncome() {
         String sql = "SELECT SUM(totalPrice_log) FROM log WHERE (SELECT date_trunc('DAY', date_log))=(SELECT date_trunc('DAY',  CURRENT_TIMESTAMP));";
         double daily=0;
         try {
             ResultSet rs=connection.query(sql);
             while(rs.next())
-            daily=rs.getDouble("sum");
+                daily=rs.getDouble("sum");
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return daily;
-    }
-
-    @Override
-    public double getTotalIncomePerMonth() {
-        String sql = "SELECT SUM(totalPrice_log) FROM log WHERE (SELECT date_trunc('MONTH', date_log))=(SELECT date_trunc('MONTH',  CURRENT_TIMESTAMP));";
+        String sql2 = "SELECT SUM(totalPrice_log) FROM log WHERE (SELECT date_trunc('MONTH', date_log))=(SELECT date_trunc('MONTH',  CURRENT_TIMESTAMP));";
         double monthly=0;
         try {
-            ResultSet rs=connection.query(sql);
+            ResultSet rs=connection.query(sql2);
             while(rs.next())
-            monthly=rs.getDouble("sum");
+                monthly=rs.getDouble("sum");
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return monthly;
+
+        Income income=new Income(daily,monthly);
+        return income;
     }
+
 }

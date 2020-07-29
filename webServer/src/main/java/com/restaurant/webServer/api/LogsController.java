@@ -1,5 +1,6 @@
 package com.restaurant.webServer.api;
 
+import com.restaurant.webServer.model.Income;
 import com.restaurant.webServer.model.Log;
 import com.restaurant.webServer.model.LogQuantityBought;
 import com.restaurant.webServer.service.LogsService;
@@ -18,8 +19,6 @@ private final LogsService logsService;
     public List<Log> getAllLog(){return logsService.getAllLog();}
     @GetMapping(path="LogQuantityBought")
     public List<LogQuantityBought> getAllLogQuantityBought(){return logsService.getAllLogQuantityBought();}
-    @GetMapping(path="Daily")
-    public double getTotalIncomePerDay(){return logsService.getTotalIncomPerDay();}
-    @GetMapping(path="Monthly")
-    public double getTotalIncomePerMonth(){return logsService.getTotalIncomPerMonth();}
+    @GetMapping(path="Income")
+    public Income getTotalIncome(){return logsService.getTotalIncom();}
 }
