@@ -14,7 +14,7 @@ public class Conn {
     private Connection connection;
     private static Conn conn;
     private static final String DRIVER = "org.postgresql.Driver";
-    private static final String URL = "jdbc:postgresql://localhost:5432/postgres?currentSchema=restaurant";
+    private static final String URL = "jdbc:localhost://localhost:5432/postgres?currentSchema=restaurant";
     private static final String USER = "postgres";
     private static final String PASSWORD = "1234";
 

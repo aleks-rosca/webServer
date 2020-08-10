@@ -20,7 +20,9 @@ public class OrderedItemsDB implements IOrderedItemsDAO{
 
     @Override
     public String addOrderItems(OrderItems orderItem) {
-        String sql = "INSERT INTO orderedItems(itemID,tableNO,quantity,price,ready) values('" + orderItem.getItemID() + "', '" + orderItem.getTableNo() + "', '" + orderItem.getQuantity() +"',("+orderItem.getQuantity()+"*(SELECT itemPrice FROM item WHERE itemID="+orderItem.getItemID()+")),'0');";
+        String sql = "INSERT INTO orderedItems(itemID,tableNO,quantity,price,ready) values('" + orderItem.getItemID() + "', " +
+                "'" + orderItem.getTableNo() + "', '" + orderItem.getQuantity()
+                +"',("+orderItem.getQuantity()+"*(SELECT itemPrice FROM item WHERE itemID="+orderItem.getItemID()+")),'0');";
 
         try {
             connection.update(sql);

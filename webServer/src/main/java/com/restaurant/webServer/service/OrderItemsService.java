@@ -27,7 +27,8 @@ public class OrderItemsService {
         return orderedItemsdb.getAllOrderItems();
     };
 
-    public List<OrderItems> getAllKitchenOrderItems(){ return orderedItemsdb.getAllKitchenOrderItems(); }
+    public List<OrderItems> getAllKitchenOrderItems(){
+        return orderedItemsdb.getAllKitchenOrderItems(); }
 
     public List<OrderItems> getAllWaiterOrderItems(){
         return orderedItemsdb.getAllWaiterOrderItems();

@@ -38,6 +38,7 @@ public class OrderItemsController {
     public List<OrderItems> getAllWaiterOrderItems() {
         return orderItemsService.getAllWaiterOrderItems();
     }
+
     @GetMapping(path = "{tableNO}")
     public List<OrderItems> getAllOrderItemsbyTableNO(@PathVariable("tableNO") String tableNO) {
         return orderItemsService.getOrderItemsbyTableNO(tableNO);
